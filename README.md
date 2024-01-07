@@ -37,8 +37,8 @@ java -jar target/MonitorSensors-0.0.1-SNAPSHOT.jar
 
 ## Сущности
 В приложении кроме пользователя есть еще основная сущность датчик (Sensor) *'http://localhost:8080/agsr/test/sensors'*  и 2 дополнительные: 
-1. тип (Type)  - *'http://localhost:8080/agsr/test/sensors/types'*
-2. единица измерения (Unit) - *'http://localhost:8080/agsr/test/sensors/units'*
+1. тип (Type)  - *'http://localhost:8080/agsr/test/sensors/types'* есть 4 предустановленных значения (Pressure, Voltage, Temperature, Humidity)
+2. единица измерения (Unit) - *'http://localhost:8080/agsr/test/sensors/units'* есть 4 предустановленных значения (bar, voltage, °С, %)
 
 ### Каждая сущность обладает набором CRUD операций, с ними можно ознакомиться в swagger
 ### http://localhost:8080/swagger-ui/index.html
