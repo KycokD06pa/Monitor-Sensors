@@ -6,18 +6,16 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8081:8080"
+      - "8080:8080"
     depends_on:
-      - mysql
+      - service-db
     environment:
       - SERVER_PORT= 8080
-      - SPRING_DATASOURCE_URL=jdbc:mysql://localhost:3306/test
-  mysql:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://service-db:3306/test
+  service-db:
     image: mysql:8.0.33
-    container_name: 'java-mysql'
     environment:
       MYSQL_DATABASE: 'test'
       MYSQL_ROOT_PASSWORD: '31072002oisvK'
-      MYSQL_DB: 'test'
     ports:
       - "3307:3306"
