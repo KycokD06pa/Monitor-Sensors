@@ -29,7 +29,7 @@ java -jar target/MonitorSensors-0.0.1-SNAPSHOT.jar
 ### Данные предустановленных пользователей
 1. Administrator - name = 'admin', password = '2609'
 2. Viewer - name = 'user', password = 'abcd'
-### создать своего пользователя
+### Создать своего пользователя
 Для этого нужно перейти по адресу
 ### http://localhost:8080/agsr/test/users/save
 и написать post запрос с использованием json. Переходя по этому адресу страница авторизации не будет запущена.
