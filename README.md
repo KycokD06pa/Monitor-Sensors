@@ -3,6 +3,7 @@
 - Java 17(JDK 17 required)
 - Spring Boot 3, Spring Data Jpa 3, Spring Security 6
 - Hibernate, Liquibase
+- Swagger
 - Mysql
 - Postman
 ## Запуск
