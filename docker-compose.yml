@@ -1,21 +1,31 @@
-version: '3.8'
+version: "3.8"
+
 services:
-  client-backend:
-    image: client:0.0.1
-    build:
-      context: .
-      dockerfile: Dockerfile
+  mysqldb:
+    image: mysql:8
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=31072002oisvK
+      - MYSQL_DATABASE=test
     ports:
-      - "8080:8080"
+      - 3307:3306
+    volumes:
+      - db:/var/lib/mysql
+  app:
     depends_on:
-      - service-db
-    environment:
-      - SERVER_PORT= 8080
-      - SPRING_DATASOURCE_URL=jdbc:mysql://service-db:3306/test
-  service-db:
-    image: mysql:8.0.33
-    environment:
-      MYSQL_DATABASE: 'test'
-      MYSQL_ROOT_PASSWORD: '31072002oisvK'
+      - mysqldb
+    build: ./
+    restart: on-failure
     ports:
-      - "3307:3306"
+      - 8080:8080
+    environment:
+      SPRING_APPLICATION_JSON: '{
+        "spring.datasource.url"  : "jdbc:mysql://mysqldb:3306/test?allowPublicKeyRetrieval=true&useSSL=false",
+        "spring.datasource.username" : "root",
+        "spring.datasource.password" : "31072002oisvK",
+        "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL8Dialect",
+        "spring.jpa.hibernate.ddl-auto" : "update"
+      }'
+
+volumes:
+  db:
