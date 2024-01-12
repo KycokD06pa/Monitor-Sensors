@@ -18,6 +18,8 @@ java -jar target/MonitorSensors-0.0.1-SNAPSHOT.jar
 ### Запуск при помощи Docker
 1. Нужно повторить действия для запука jar файла и создать его в папке *target*
 2. Далее необходимо запусть *services* в *docker-compose.yml* после чего будет создан соответствующий контейнер и приложение запуститься
+
+   
 ![image](https://github.com/KycokD06pa/firstSpringBootApp/assets/135359267/222f99ba-df8a-4948-80bd-8a4bfc9fd808)
 
 
